@@ -70,7 +70,7 @@ class _PlacePageState extends State<PlacePage> {
     }
 
     _client.list_item.forEach((userDetail) {
-      if (userDetail.title.contains(text)) {
+      if (userDetail.title.toLowerCase().contains(text.toLowerCase())) {
         _client.search_item.add(userDetail);
       }
     });

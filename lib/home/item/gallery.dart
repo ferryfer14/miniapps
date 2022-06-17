@@ -71,7 +71,7 @@ class _GalleryPageState extends State<GalleryPage> {
     }
 
     _client.list_item.forEach((userDetail) {
-      if (userDetail.caption.contains(text)) {
+      if (userDetail.caption.toLowerCase().contains(text.toLowerCase())) {
         _client.search_item.add(userDetail);
       }
     });
