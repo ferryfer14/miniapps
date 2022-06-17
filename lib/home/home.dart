@@ -26,9 +26,6 @@ class _HomePageState extends State<HomePage>
     super.initState();
     _controller = BottomNavigationController(vsync: this);
     _client.onInit();
-    Timer(Duration(seconds: 3), () {
-      setState(() {});
-    });
   }
 
   @override

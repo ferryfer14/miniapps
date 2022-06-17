@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:miniapps/model/place_model.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:miniapps/variable/global.dart' as global;
 
 class PlacePage extends StatefulWidget {
   @override
@@ -142,12 +143,20 @@ class _PlacePageState extends State<PlacePage> {
       Expanded(
           child: GetBuilder<PlaceModel>(
               init: PlaceModel(),
-              builder: (data) => data.search_item.length != 0 ||
-                      search_controller.text.isNotEmpty
-                  ? _view(data.search_item)
-                  : data.list_item.length != 0
-                      ? _view(data.list_item)
-                      : Container()))
+              builder: (data) => FutureBuilder<List<Place>>(
+                  future: data.client_get(global.place_url),
+                  builder: (context, value) {
+                    if (data.list_item.length > 0) {
+                      return data.search_item.length != 0 ||
+                              search_controller.text.isNotEmpty
+                          ? _view(data.search_item)
+                          : data.list_item.length != 0
+                              ? _view(data.list_item)
+                              : Container();
+                    } else {
+                      return Container();
+                    }
+                  })))
     ]));
   }
 }
