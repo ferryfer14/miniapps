@@ -37,7 +37,7 @@ class Place {
         title = json['title'] as String,
         content = json['content'] as String,
         type = json['type'] as String,
-        image = json['image'] as String,
+        image = json['image'].toString() as String,
         media = json['media'] as List;
 }
 

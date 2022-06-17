@@ -19,11 +19,16 @@ class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   late final BottomNavigationController _controller;
   String title = "Place";
+  final _client = Get.put(PlaceModel());
 
   @override
   void initState() {
     super.initState();
     _controller = BottomNavigationController(vsync: this);
+    _client.onInit();
+    Timer(Duration(seconds: 3), () {
+      setState(() {});
+    });
   }
 
   @override

@@ -80,61 +80,56 @@ class _PlacePageState extends State<PlacePage> {
 
   Widget _view(list) {
     return ListView.builder(
-        itemCount: list.length + 1,
+        itemCount: list.length,
         itemBuilder: (BuildContext context, int index) {
-          if (index == list.length) {
-            return _buildProgressIndicator();
-          } else {
-            return Container(
-              margin: EdgeInsets.only(top: 5),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(16))),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    margin:
-                        EdgeInsets.only(right: 8, left: 8, top: 8, bottom: 8),
-                    width: 60,
-                    height: 60,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(14)),
-                        color: Colors.grey.shade200),
-                    child: Image.network(
-                      list[index].image.toString() == 'null'
-                          ? list[index].media[0]
-                          : list[index].image,
-                      fit: BoxFit.fill,
+          return Container(
+            margin: EdgeInsets.only(top: 5),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(16))),
+            child: Row(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(right: 8, left: 8, top: 8, bottom: 8),
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(14)),
+                      color: Colors.grey.shade200),
+                  child: Image.network(
+                    list[index].image.toString() == 'null'
+                        ? list[index].media[0]
+                        : list[index].image,
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.only(right: 8, top: 4),
+                          child: Text(
+                            list[index].title,
+                            maxLines: 2,
+                            softWrap: true,
+                            style: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                        SizedBox(height: 6),
+                        Text(list[index].content),
+                      ],
                     ),
                   ),
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Container(
-                            padding: EdgeInsets.only(right: 8, top: 4),
-                            child: Text(
-                              list[index].title,
-                              maxLines: 2,
-                              softWrap: true,
-                              style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w600),
-                            ),
-                          ),
-                          SizedBox(height: 6),
-                          Text(list[index].content),
-                        ],
-                      ),
-                    ),
-                    flex: 100,
-                  )
-                ],
-              ),
-            );
-          }
+                  flex: 100,
+                )
+              ],
+            ),
+          );
         });
   }
 
@@ -150,7 +145,9 @@ class _PlacePageState extends State<PlacePage> {
               builder: (data) => data.search_item.length != 0 ||
                       search_controller.text.isNotEmpty
                   ? _view(data.search_item)
-                  : _view(data.list_item)))
+                  : data.list_item.length != 0
+                      ? _view(data.list_item)
+                      : Container()))
     ]));
   }
 }

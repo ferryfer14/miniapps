@@ -75,6 +75,8 @@ class _UserPageState extends State<UserPage> {
     return new Scaffold(
         body: GetBuilder<UserModel>(
             init: UserModel(),
-            builder: (data) => data_profile(data.list_item)));
+            builder: (data) => data.list_item.length != 0
+                ? data_profile(data.list_item)
+                : Container()));
   }
 }
