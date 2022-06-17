@@ -4,9 +4,8 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-Tidak Ada akun untuk email & Password
-cukup ikuti validasi saja
+Tidak Ada akun untuk email & Password <br/>
+cukup ikuti validasi saja <br/>
 mohon untuk flutter clean & pub get setelah clone sebelum di running
-
+ <br/> <br/>
 Terimakasih
