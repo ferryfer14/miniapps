@@ -1,0 +1,27 @@
+[
+    {
+        "id":1,
+        "name" : "Outlet 1",
+        "address":"Jl Address 1 No 2 Jakarta Barat"
+    },
+    {
+        "id":2,
+        "name" : "Outlet 2",
+        "address":"Jl Address 2 No 2 Jakarta Utara"
+    },
+    {
+        "id":3,
+        "name" : "Outlet 3",
+        "address": "Jl Address 3 No 2 Jakarta Timur"
+    },
+    {
+        "id":4,
+        "name" : "Outlet 4",
+        "address": "Jl Address 4 No 2 Jakarta Selatan"
+    },
+    {
+        "id":5,
+        "name" : "Outlet 5",
+        "address": "Jl Address 5 No 2 Kepulauan Seribu"
+    }
+]
