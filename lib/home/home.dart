@@ -7,11 +7,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:miniapps/controller/controller.dart';
 import 'package:miniapps/home/drawer/drawer.dart';
-import 'package:miniapps/home/item/gallery.dart';
-import 'package:miniapps/home/item/place.dart';
-import 'package:miniapps/home/item/user.dart';
+import 'package:miniapps/home/item/catalog.dart';
+import 'package:miniapps/home/item/outlet.dart';
 import 'package:miniapps/login/sign_in.dart';
-import 'package:miniapps/model/place_model.dart';
+import 'package:miniapps/model/catalog_model.dart';
 import 'package:miniapps/variable/global.dart' as global;
 
 class HomePage extends StatefulWidget {
@@ -39,7 +38,9 @@ class _HomePageState extends State<HomePage>
     return Material(
         color: Colors.white,
         child: InkWell(
-            onTap: () {}, // Image tapped
+            onTap: () {
+              Get.to(CatalogPage());
+            }, // Image tapped
             child: Text(
               'Catalog'.toUpperCase(),
               style: TextStyle(
@@ -97,7 +98,7 @@ class _HomePageState extends State<HomePage>
                             borderRadius: BorderRadius.circular(18.0),
                             side: BorderSide(color: Color(0xff522D07))))),
                 onPressed: () {
-                  setState(() {});
+                  Get.to(OutletPage());
                 })));
   }
 
@@ -142,27 +143,28 @@ class _HomePageState extends State<HomePage>
                             borderRadius: BorderRadius.circular(18.0),
                             side: BorderSide(color: Color(0xff522D07))))),
                 onPressed: () {
-                  setState(() {});
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text('Halaman belum tersedia'),
+                  ));
                 })));
   }
 
   Widget notification() {
     return Container(
-        height: 150,
         child: GestureDetector(
             onPanDown: (_) {
-              setState(() => hover_order = true);
+              setState(() => hover_notification = true);
             },
             onPanCancel: () {
               setState(() {
-                hover_order = false;
+                hover_notification = false;
               });
             },
             child: ElevatedButton(
                 child: Column(children: [
                   SvgPicture.asset(
                     'assets/notification_icon.svg',
-                    color: setColor(hover_order),
+                    color: setColor(hover_notification),
                     height: 50,
                     width: 50,
                     allowDrawingOutsideViewBox: true,
@@ -171,8 +173,8 @@ class _HomePageState extends State<HomePage>
                     height: 20,
                   ),
                   Text("Notification",
-                      style:
-                          TextStyle(fontSize: 14, color: setColor(hover_order)))
+                      style: TextStyle(
+                          fontSize: 14, color: setColor(hover_notification)))
                 ]),
                 style: ButtonStyle(
                     padding: MaterialStateProperty.all<EdgeInsets>(
@@ -188,7 +190,9 @@ class _HomePageState extends State<HomePage>
                             borderRadius: BorderRadius.circular(18.0),
                             side: BorderSide(color: Color(0xff522D07))))),
                 onPressed: () {
-                  setState(() {});
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text('Halaman belum tersedia'),
+                  ));
                 })));
   }
 
@@ -196,18 +200,18 @@ class _HomePageState extends State<HomePage>
     return Container(
         child: GestureDetector(
             onPanDown: (_) {
-              setState(() => hover_order = true);
+              setState(() => hover_history = true);
             },
             onPanCancel: () {
               setState(() {
-                hover_order = false;
+                hover_history = false;
               });
             },
             child: ElevatedButton(
                 child: Column(children: [
                   SvgPicture.asset(
                     'assets/history_icon.svg',
-                    color: setColor(hover_order),
+                    color: setColor(hover_history),
                     height: 50,
                     width: 50,
                     allowDrawingOutsideViewBox: true,
@@ -216,8 +220,8 @@ class _HomePageState extends State<HomePage>
                     height: 20,
                   ),
                   Text("History",
-                      style:
-                          TextStyle(fontSize: 14, color: setColor(hover_order)))
+                      style: TextStyle(
+                          fontSize: 14, color: setColor(hover_history)))
                 ]),
                 style: ButtonStyle(
                     padding: MaterialStateProperty.all<EdgeInsets>(
@@ -233,8 +237,28 @@ class _HomePageState extends State<HomePage>
                             borderRadius: BorderRadius.circular(18.0),
                             side: BorderSide(color: Color(0xff522D07))))),
                 onPressed: () {
-                  setState(() {});
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text('Halaman belum tersedia'),
+                  ));
                 })));
+  }
+
+  Widget button_icon() {
+    return OrientationBuilder(builder: (context, orientation) {
+      int count = 2;
+      if (orientation == Orientation.landscape) {
+        count = 3;
+      }
+      return GridView.count(
+          shrinkWrap: true,
+          padding: EdgeInsets.zero,
+          mainAxisSpacing: 10,
+          crossAxisSpacing: 10,
+          childAspectRatio: 1.3,
+          physics: NeverScrollableScrollPhysics(),
+          crossAxisCount: count,
+          children: <Widget>[myoutlet(), order(), notification(), history()]);
+    });
   }
 
   @override
@@ -300,31 +324,7 @@ class _HomePageState extends State<HomePage>
                     const SizedBox(
                       height: 20,
                     ),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: myoutlet(),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Expanded(child: order())
-                        ]),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: notification(),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Expanded(child: history())
-                        ]),
+                    button_icon()
                   ]),
             ))
           ])),

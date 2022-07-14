@@ -84,6 +84,8 @@ flutter:
     - assets/cart_icon.svg
     - assets/history_icon.svg
     - assets/notification_icon.svg
+    - assets/outlet.json
+    - assets/catalogue.json
 
 
   # To add assets to your application, add an assets section, like this:

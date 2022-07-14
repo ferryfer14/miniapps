@@ -19,15 +19,15 @@ class _SignInPageState extends State<SignInPage> {
   bool _passwordVisible = false;
   bool loader = false;
 
-  Widget email() {
+  Widget username() {
     return Container(
         width: double.infinity,
         height: 50,
         child: FormBuilderTextField(
-          keyboardType: TextInputType.emailAddress,
+          keyboardType: TextInputType.text,
           textInputAction: TextInputAction.next,
           key: _emailFieldKey,
-          name: 'email',
+          name: 'username',
           decoration: InputDecoration(
             labelText: 'Email or Phone Number',
             labelStyle: TextStyle(color: Theme.of(context).hintColor),
@@ -44,7 +44,6 @@ class _SignInPageState extends State<SignInPage> {
           style: TextStyle(height: 1, color: Colors.black),
           validator: FormBuilderValidators.compose([
             FormBuilderValidators.required(),
-            FormBuilderValidators.email(),
           ]),
         ));
   }
@@ -117,12 +116,21 @@ class _SignInPageState extends State<SignInPage> {
                 onPressed: () {
                   if (_formKey.currentState?.saveAndValidate() ?? false) {
                     if (true) {
-                      setState(() {
-                        loader = true;
-                      });
-                      Timer(Duration(seconds: 3), () {
-                        Get.offNamed('/home');
-                      });
+                      var array = _formKey.currentState?.value;
+                      if (array!['username'] == 'admin' &&
+                          array['password'] == 'password') {
+                        setState(() {
+                          loader = true;
+                        });
+                        Timer(Duration(seconds: 3), () {
+                          Get.offNamed('/home');
+                        });
+                      } else {
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                          content: Text('Username dan Password Salah!'),
+                        ));
+                      }
                     }
 
                     debugPrint('Valid');
@@ -190,7 +198,7 @@ class _SignInPageState extends State<SignInPage> {
                                         ),
                                       ),
                                       const SizedBox(height: 50),
-                                      email(),
+                                      username(),
                                       const SizedBox(height: 20),
                                       _password(),
                                       const SizedBox(height: 20),
