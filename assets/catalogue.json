@@ -1,0 +1,32 @@
+[
+    {
+        "id":1,
+        "name" : "Es Kopi Gula Aren",
+        "price":18000,
+        "image": "https://assets.resepedia.id/assets/images/2021/02/1692211110068875-es-kopi-susu-gula-aren-640.jpg"
+    },
+    {
+        "id":2,
+        "name" : "Es Susu Jelly",
+        "price":18000,
+        "image": "https://cdn.idntimes.com/content-images/post/20200823/20200823-115350-7d04ebc7e3e9fff7292ddb74707cb52f.jpg"
+    },
+    {
+        "id":3,
+        "name" : "Espresso",
+        "price": 15000,
+        "image": "https://4.bp.blogspot.com/-5dRbXdI4R1I/WduVrTF3JsI/AAAAAAAAM-U/S9t0xs7h5_AQCsuWibCKq-pcQzKoCMOYACLcBGAs/s1600/espresso.png"
+    },
+    {
+        "id":4,
+        "name" : "Caramel Macchiato",
+        "price": 20000,
+        "image": "https://www.starbucksathome.com/za/sites/default/files/styles/rdp_banner_image/public/2021-06/10032021_IcedCaramel_Work_CS-min.png"
+    },
+    {
+        "id":5,
+        "name" : "Es Kopi Avocado",
+        "price": 21000,
+        "image": "https://kurio-img.kurioapps.com/20/11/24/e69ed429-7bbc-4501-ad18-35c7fcf2da1d.jpeg"
+    }
+]

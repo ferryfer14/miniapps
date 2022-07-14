@@ -43,6 +43,8 @@ dependencies:
   bottom_navigation_view: ^0.3.0
   dio: ^4.0.6
   cached_network_image: ^3.2.0
+  easy_dynamic_theme: ^2.2.0
+  flutter_svg: ^1.0.3
 
 dev_dependencies:
   flutter_test:
@@ -64,9 +66,25 @@ flutter:
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
+  fonts:
+    - family: Proxima
+      fonts:
+        - asset: fonts/proxima_ssv/Proxima Nova Black.otf
+        - asset: fonts/proxima_ssv/Proxima Nova Bold.otf
+          weight: 700
+        - asset: fonts/proxima_ssv/Proxima Nova Extrabold.otf
+          weight: 800
   uses-material-design: true
   assets:
     - assets/splash.gif
+    - assets/coffee-bag.png
+    - assets/bg.png
+    - assets/banner.jpg
+    - assets/shop_icon.svg
+    - assets/cart_icon.svg
+    - assets/history_icon.svg
+    - assets/notification_icon.svg
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:
