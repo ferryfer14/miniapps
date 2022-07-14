@@ -31,6 +31,10 @@ class _SignInPageState extends State<SignInPage> {
           decoration: InputDecoration(
             labelText: 'Email or Phone Number',
             labelStyle: TextStyle(color: Theme.of(context).hintColor),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.red, width: 1),
+              borderRadius: BorderRadius.circular(30),
+            ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 1),
               borderRadius: BorderRadius.circular(30),
@@ -57,6 +61,10 @@ class _SignInPageState extends State<SignInPage> {
           decoration: InputDecoration(
             labelText: 'Password',
             labelStyle: TextStyle(color: Theme.of(context).hintColor),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.red, width: 1),
+              borderRadius: BorderRadius.circular(30),
+            ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 1),
               borderRadius: BorderRadius.circular(30),
@@ -83,10 +91,6 @@ class _SignInPageState extends State<SignInPage> {
           obscureText: !_passwordVisible, //This will obscure text dynamically
           validator: FormBuilderValidators.compose([
             FormBuilderValidators.required(),
-            FormBuilderValidators.match("(?=.*[A-Z])",
-                errorText: "Must be at least one upper case"),
-            FormBuilderValidators.match("(?=.*[a-z])",
-                errorText: "Must be at least one lower case"),
             FormBuilderValidators.minLength(6),
           ]),
         ));
