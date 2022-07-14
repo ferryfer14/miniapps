@@ -11,7 +11,6 @@ import 'package:miniapps/home/item/catalog.dart';
 import 'package:miniapps/home/item/outlet.dart';
 import 'package:miniapps/login/sign_in.dart';
 import 'package:miniapps/model/catalog_model.dart';
-import 'package:miniapps/variable/global.dart' as global;
 
 class HomePage extends StatefulWidget {
   @override

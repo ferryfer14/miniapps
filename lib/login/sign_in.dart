@@ -31,15 +31,7 @@ class _SignInPageState extends State<SignInPage> {
           decoration: InputDecoration(
             labelText: 'Email or Phone Number',
             labelStyle: TextStyle(color: Theme.of(context).hintColor),
-            focusedErrorBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.red, width: 1),
-              borderRadius: BorderRadius.circular(30),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1),
-              borderRadius: BorderRadius.circular(30),
-            ),
-            enabledBorder: OutlineInputBorder(
+            border: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 1),
               borderRadius: BorderRadius.circular(30),
             ),
@@ -61,15 +53,7 @@ class _SignInPageState extends State<SignInPage> {
           decoration: InputDecoration(
             labelText: 'Password',
             labelStyle: TextStyle(color: Theme.of(context).hintColor),
-            focusedErrorBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.red, width: 1),
-              borderRadius: BorderRadius.circular(30),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1),
-              borderRadius: BorderRadius.circular(30),
-            ),
-            enabledBorder: OutlineInputBorder(
+            border: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black, width: 1),
               borderRadius: BorderRadius.circular(30),
             ),

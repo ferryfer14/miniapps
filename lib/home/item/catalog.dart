@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:miniapps/model/catalog_model.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:miniapps/variable/global.dart' as global;
 
 class CatalogPage extends StatefulWidget {
   @override

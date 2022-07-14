@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'package:miniapps/variable/global.dart' as global;
 
 import 'package:get/get.dart';
 
